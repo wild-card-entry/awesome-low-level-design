@@ -22,6 +22,7 @@ public class ParkingFloor {
         spots.put(spot.getSpotId(), spot);
     }
 
+    //synchronized in unprak, park and find available spots
     public synchronized Optional<ParkingSpot> findAvailableSpot(Vehicle vehicle) {
         return spots.values().stream()
                 .filter(spot -> !spot.isOccupied() && spot.canFitVehicle(vehicle))
